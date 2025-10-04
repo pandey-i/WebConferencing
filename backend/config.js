@@ -8,7 +8,7 @@ module.exports = {
   secret: process.env.AUTH_SECRET || 'jwt-default-secret',
   mongo: {
     uri: process.env.MONGO_URI,
-    srv: true,
+    srv: false,
     username: process.env.MONGO_USERNAME,
     password: process.env.MONGO_PASSWORD,
     authenticationDatabase: process.env.MONGO_AUTHENTICATION_DATABASE,
