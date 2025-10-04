@@ -5,9 +5,9 @@ const randomstring = require('randomstring');
 
 // Configure Cloudinary
 cloudinary.config({
-  cloud_name: store.config.cloudinary.cloud_name,
-  api_key: store.config.cloudinary.api_key,
-  api_secret: store.config.cloudinary.api_secret,
+  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET,
 });
 
 module.exports = async (req, res) => {
