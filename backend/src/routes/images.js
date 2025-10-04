@@ -5,13 +5,13 @@ module.exports = (req, res, next) => {
 
   Images.findOne({ shieldedID: id })
     .then((descriptor) => {
-      if (!descriptor) return res.status(500).json({ error: 'Image not found' });
+      if (!descriptor) return res.status(404).json({ error: 'Image not found' });
 
       let url = descriptor.location;
 
-      // If size is specified, append Cloudinary transformation
+      // If size is specified, redirect to Cloudinary with transformation
       if (size) {
-        // Assuming square crop for simplicity, adjust as needed
+        // Replace the URL to include size transformation
         url = url.replace('/upload/', `/upload/w_${size},h_${size},c_fill/`);
       }
 

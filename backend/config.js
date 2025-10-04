@@ -1,4 +1,4 @@
-require('dotenv').config();
+agrequire('dotenv').config();
 const info = require('./version.json');
 
 module.exports = {
@@ -42,6 +42,12 @@ module.exports = {
       user: 'your_smtp_user',
       pass: 'your_smtp_password',
     },
+  },
+
+  cloudinary: {
+    cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+    api_key: process.env.CLOUDINARY_API_KEY,
+    api_secret: process.env.CLOUDINARY_API_SECRET,
   },
 
   // hardcoded
