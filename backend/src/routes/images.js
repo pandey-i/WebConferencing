@@ -1,33 +1,25 @@
 const Images = require('../models/Image');
-const fs = require('fs');
 
 module.exports = (req, res, next) => {
   const { id, size } = req.params;
 
   Images.findOne({ shieldedID: id })
     .then((descriptor) => {
-      if (!descriptor) return res.status(500);
+      if (!descriptor) return res.status(500).json({ error: 'Image not found' });
 
-      let location = descriptor.location;
+      let url = descriptor.location;
 
+      // If size is specified, append Cloudinary transformation
       if (size) {
-        location = `${location.substr(0, location.length - 4)}-${size}.jpg`;
-        console.log(location);
+        // Assuming square crop for simplicity, adjust as needed
+        url = url.replace('/upload/', `/upload/w_${size},h_${size},c_fill/`);
       }
 
-      fs.access(location, fs.constants.F_OK, (err) => {
-        if (err) {
-          console.log(err);
-          return res.status(404).send('Not Found');
-        }
-
-        fs.createReadStream(location).pipe(res);
-        res.set('Content-type', 'image/jpeg');
-        res.status(200);
-      });
+      // Redirect to the Cloudinary URL
+      res.redirect(url);
     })
     .catch((err) => {
       console.log(err);
-      return res.status(404).send('Not Found');
+      return res.status(404).json({ error: 'Not Found' });
     });
 };
