@@ -1,0 +1,20 @@
+services:
+  - type: web
+    name: clover-backend
+    env: node
+    plan: free
+    buildCommand: 'npm install'
+    startCommand: 'node index.js'
+    envVars:
+      - key: PORT
+        value: '10000'
+      - key: MONGO_URI
+        fromDatabase:
+          name: your-mongodb-database
+          property: connectionString
+      - key: AUTH_SECRET
+        value: 'your_jwt_secret'
+      - key: OTHER_ENV_VARS
+        value: 'values'
+    healthCheckPath: /health
+    autoDeploy: true

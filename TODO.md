@@ -1,0 +1,17 @@
+- [x] Check Node.js and npm versions
+- [x] Install backend dependencies
+- [x] Install frontend dependencies
+- [x] Create backend/.env with MongoDB Atlas URI and other configs
+- [x] Create frontend/.env.local with backend URL and site title
+- [x] Start backend server
+- [x] Start frontend dev server
+- [x] Test MongoDB connection
+- [x] Test frontend loads
+- [x] Test registration API
+- [x] Test login API
+- [x] Test room creation API
+- [x] Test frontend registration/login
+- [x] Change site title to "Aman Pandey"
+- [x] Change primary color theme to Cobalt Blue (#0047AB)
+- [ ] Test room creation and messaging
+- [ ] Test audio/video calls
