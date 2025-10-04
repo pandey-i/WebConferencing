@@ -14,7 +14,13 @@ services:
           property: connectionString
       - key: AUTH_SECRET
         value: 'your_jwt_secret'
-      - key: OTHER_ENV_VARS
-        value: 'values'
+      - key: NODEMAILER_ENABLED
+        value: 'true'
+      - key: NODEMAILER_FROM
+        value: 'your-gmail@gmail.com'
+      - key: NODEMAILER_USER
+        value: 'your-gmail@gmail.com'
+      - key: NODEMAILER_PASS
+        value: 'your-gmail-app-password'
     healthCheckPath: /health
     autoDeploy: true

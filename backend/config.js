@@ -34,7 +34,6 @@ module.exports = {
     from: process.env.NODEMAILER_FROM || 'admin@example.com',
   },
   nodemailerTransport: {
-    service: 'gmail',
     host: 'smtp.gmail.com',
     port: 587,
     secure: false,
