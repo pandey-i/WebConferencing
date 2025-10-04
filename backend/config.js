@@ -1,4 +1,4 @@
-agrequire('dotenv').config();
+require('dotenv').config();
 const info = require('./version.json');
 
 module.exports = {
