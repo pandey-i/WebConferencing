@@ -29,17 +29,18 @@ module.exports = {
     announcedIp: process.env.MAPPED_IP === 'true' ? process.env.PUBLIC_IP_ADDRESS : null,
   },
 
-  nodemailerEnabled: process.env.NODEMAILER_ENABLED === 'true',
+  nodemailerEnabled: false,
   nodemailer: {
-    from: process.env.NODEMAILER_FROM || 'admin@example.com',
+    from: 'admin@example.com', // example: address@outlook.com (required)
   },
   nodemailerTransport: {
-    host: 'smtp.gmail.com',
-    port: 587,
-    secure: false,
+    service: undefined, // example: hotmail (leave blank if using own smtp below)
+    host: 'smtp.yourdomain.tld', // example: smtp.yourdomain.tld (leave blank if using service above)
+    port: 587, // example: 587 (leave blank if using service above)
+    secure: false, // require STARTTLS, can be true or false (leave blank if using service above)
     auth: {
-      user: process.env.NODEMAILER_USER,
-      pass: process.env.NODEMAILER_PASS,
+      user: 'your_smtp_user',
+      pass: 'your_smtp_password',
     },
   },
 

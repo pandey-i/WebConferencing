@@ -7,12 +7,12 @@ const sendMail = (data) => {
 
     transport.verify((error) => {
       if (error) {
-        console.log('error while connecting to smtp server'.red, error);
+        console.log('error while connecting to smtp server'.red);
         reject(error);
       } else {
         transport.sendMail(data, (err) => {
           if (err) {
-            console.log(`error while sending email to ${data.to} with subject ${data.subject}`.red, err);
+            console.log(`error while sending email to ${data.to} with subject ${data.subject}`.red);
             reject(err);
           } else {
             console.log(`email sent to ${data.to} with subject ${data.subject}`.green);
